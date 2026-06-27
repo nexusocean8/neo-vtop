@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.5 - 2026
+## 1.1.7 - 2026
 
 - Forked from vtop
 - Rewritten in TypeScript

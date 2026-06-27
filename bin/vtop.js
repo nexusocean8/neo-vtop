@@ -1,2 +1,4 @@
-#!/usr/bin/env tsx
-import '../app'
+#!/usr/bin/env node
+import { register } from 'node:module'
+register('tsx/esm', import.meta.url)
+await import('../app.js')

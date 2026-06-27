@@ -1,6 +1,6 @@
 {
   "name": "neo-vtop",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Wow such top. So stats. More neo than vtop, very based.",
   "homepage": "https://github.com/nexusocean8/neo-vtop",
   "main": "app.ts",

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "types": ["node"],
+    "target": "esnext",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "typeRoots": ["./types", "./node_modules/@types"]
+  }
+}

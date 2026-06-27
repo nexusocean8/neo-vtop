@@ -1,44 +1,57 @@
 {
-  "name": "vtop",
-  "version": "0.6.1",
-  "description": "Wow such top. So stats",
-  "homepage": "http://parall.ax/vtop",
-  "main": "app.js",
+  "name": "neo-vtop",
+  "version": "1.0.1",
+  "description": "Wow such top. So stats. More neo than vtop, very based.",
+  "homepage": "https://github.com/nexusocean8/neo-vtop",
+  "main": "app.ts",
   "preferGlobal": true,
   "engines": {
-    "node": ">= 4"
+    "node": ">= 24"
   },
   "scripts": {
-    "test": "make test",
-    "precommit": "standard"
-  },
-  "standard": {
-    "ignore": [
-      "bin/vtop.js"
-    ]
+    "start": "tsx app.ts",
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "bin": {
+    "neo-vtop": "./bin/vtop.js",
     "vtop": "./bin/vtop.js"
   },
   "author": {
-    "name": "James Hall",
-    "email": "james@parall.ax"
+    "name": "Vincent",
+    "email": "support@nexusocean.io"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:MrRio/vtop.git"
+    "url": "git@github.com:nexusocean8/neo-vtop.git"
   },
+  "type": "module",
   "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
-    "blessed": "0.1.81",
-    "commander": "2.11.0",
+    "commander": "^15.0.0",
     "drawille": "1.1.0",
-    "glob": "7.1.2",
-    "husky": "^0.14.3",
-    "os-utils": "0.0.14",
-    "read": "1.0.7",
-    "sudo": "1.0.3",
-    "use-strict": "^1.0.1"
+    "glob": "^13.0.6",
+    "neo-blessed": "^0.2.0",
+    "os-utils": "0.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.0",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }

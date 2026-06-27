@@ -1,104 +1,98 @@
-vtop
-=========
+# Neo VTop
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/MrRio/vtop.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/MrRio/vtop.svg?branch=master)](https://travis-ci.org/MrRio/vtop)
-
-A graphical activity monitor for the command line.
+A graphical activity monitor for the command line. A neo fork of [vtop](https://github.com/MrRio/vtop) rewritten in TypeScript with updated dependencies.
 
 ![](https://raw.githubusercontent.com/MrRio/vtop/master/docs/example.gif)
 
-How to install
----
+## Installation
 
-If you haven't already got Node.js, then [go get it](http://nodejs.org/).
+Requires Node.js >= 24.
 
+> ⚠️ If you have the legendary [vtop](https://github.com/MrRio/vtop) installed, `neo-vtop` will replace the `vtop` command. Uninstall it first with `npm uninstall -g vtop`, or just let neo-vtop take over — it's more based anyway.
+
+```bash
+npm install -g neo-vtop
 ```
-npm install -g vtop
-```
 
-If you're on macOS, or get an error about file permissions, you may need to do ```sudo npm install -g vtop```. Don't do this if you're using [nvm](https://github.com/creationix/nvm).
+If you're on macOS, or get an error about file permissions, you may need to do `sudo npm install -g neo-vtop`. Don't do this if you're using [nvm](https://github.com/nvm-sh/nvm).
 
-Running
----
+## Running
 
-This is pretty simple too.
-
-```
+```bash
+neo-vtop
+# or
 vtop
 ```
 
-If you *really* like vtop, but your finger muscle memory means you keep typing 'top' then why not add an alias to ~/.bashrc.
+If your muscle memory keeps typing `top`:
 
-```
+```bash
 alias top="vtop"
 alias oldtop="/usr/bin/top"
 ```
 
-Keyboard shortcuts
----
+## Keyboard shortcuts
 
-* Press 'u' to update to the latest version of vtop.
-* Arrow up or k to move up the process list.
-* Arrow down or j to move down.
-* Arrow left or h to zoom the graphs in.
-* Arrow right or l to zoom the graphs out.
-* g to go to the top of the process list.
-* G to move to the end of the list.
-* dd to kill all the processes in that group
+- Arrow up or `k` — move up the process list
+- Arrow down or `j` — move down
+- Arrow left or `h` — zoom graphs in
+- Arrow right or `l` — zoom graphs out
+- `g` — jump to top of process list
+- `G` — jump to bottom
+- `dd` — kill all processes in that group
+- `c` — sort by CPU
+- `m` — sort by memory
+- `q` / `esc` / `Ctrl+C` — quit
 
-Mouse control
----
+## Mouse control
 
-If your terminal supports mouse events (like iTerm) then
-you can click on the items in the process list. As well as
-use the scroll wheel. You can disable mouse control with
-the `vtop --no-mouse` option.
+If your terminal supports mouse events (like iTerm) you can click items in the process list and use the scroll wheel. Disable with:
 
-FAQs
-----
-
-### How does it work?
-
-It uses [drawille](https://github.com/madbence/node-drawille) to draw CPU and Memory charts with Unicode braille characters, helping you visualize spikes. We also group processes with the same name together.
-
-### I think the CPU % is coming out wrong.
-
-We calculate the CPU percentage as a total of your overall system power. 100% is all cores and HyperThreads maxed out. This is different to how Apple Activity monitor works.
-
-### Can I change the color scheme?
-
-Sure, just do:
-
-```
-vtop --theme wizard
+```bash
+neo-vtop --no-mouse
 ```
 
-This loads the theme file in themes/ with the same name. Make your own and send me a Pull Request :)
+## Themes
 
-You could add this to your aliases if you'd like to use it always.
-
+```bash
+neo-vtop --theme wizard
 ```
+
+Themes live in the `themes/` folder. Make your own and send a pull request.
+
+```bash
 alias vtop="vtop --theme brew"
 ```
 
-### What about measuring server req/s, log entries, etc etc?
+## FAQ
 
-Yeah that's on the list :) Feel free to send a pull request though. Check out the sensors/ folder.
+### How does it work?
+
+It uses [drawille](https://github.com/madbence/node-drawille) to draw CPU and memory charts with Unicode braille characters. Processes with the same name are grouped together.
+
+### The CPU % looks wrong.
+
+CPU is calculated as a percentage of total system power across all cores and HyperThreads. 100% means all cores maxed out — this differs from how Activity Monitor on macOS reports it.
+
+### What about measuring server req/s, log entries, etc?
+
+It's on the list. Feel free to send a pull request — check out the `sensors/` folder.
 
 ### What license is this under?
 
-MIT – do what you like with it :)
+MIT — do what you like with it.
 
-### Contributing 
+## Contributing
 
-Get stuck in – click the fork button, then clone to your local machine. Use the [GitHub Desktop client](https://desktop.github.com/) if you don't know Git. Tinker with the code then run this from the command line:
+Fork, clone, then:
 
+```bash
+yarn install
+yarn start
 ```
-./bin/vtop.js
-```
 
-When you push it'll run the Standard JS checker http://standardjs.com/. If you run 'npm test' in your own terminal too, this runs in Travis, your PR will fail the test if this command fails.
+ESLint and Prettier run on commit via Husky. Make sure `yarn lint` passes before opening a PR.
 
-[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+## Credits
 
-
+Originally created by [James Hall](https://github.com/MrRio/vtop). Modernized and maintained by [nexusocean8](https://github.com/nexusocean8/neo-vtop).

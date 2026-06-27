@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1 - 2025
+
+- Forked from vtop
+- Rewritten in TypeScript
+- Replaced `blessed` with `neo-blessed`
+- Updated all dependencies to modern versions
+- Removed auto-updater
+- Added ESLint, Prettier, and Husky
+- ESM support
+- Both `vtop` and `neo-vtop` commands supported
+
 ## 0.5.0
 
 - Upgrade drawille and blessed deps
@@ -39,7 +50,7 @@
 
 ## 0.2.6 - 2014-06-11
 
-- Fix major perf problem that some users were having relating to 
+- Fix major perf problem that some users were having relating to
   drawing the header for update notifications.
 
 ## 0.2.5
